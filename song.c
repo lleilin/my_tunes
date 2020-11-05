@@ -4,10 +4,10 @@
 struct song *make_song(char *new_name, char *new_artist) {
     struct song *ns = malloc(sizeof(struct song));
     strncpy(ns->name,nn,sizeof(ns->name)-1);
-    strncpy(ns->artist,na,sizeof(ns->artist)-1);
-    ns->next = NULL;
+    strncpy(new_song->artist,new_artist,sizeof(new_song->artist)-1);
+    new_song->next = NULL;
 
-    return ns;
+    return new_song;
 }
 
 struct song *insert_front(struct song *head, struct song *new_song) {
