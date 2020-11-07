@@ -4,7 +4,7 @@
 #include <time.h>
 #include "song.h"
 
-struct song *make_song(char *new_name, char *new_artist) {
+struct song *make_song(char *new_artist, char *new_name) {
     struct song *new_song = malloc(sizeof(struct song));
     strncpy(new_song->name,new_name,sizeof(new_song->name)-1);
     strncpy(new_song->artist,new_artist,sizeof(new_song->artist)-1);
@@ -13,7 +13,7 @@ struct song *make_song(char *new_name, char *new_artist) {
     return new_song;
 }
 
-struct song *insert_front(struct song *head, char *name, char *artist) {
+struct song *insert_front(struct song *head, char *artist, char *name) {
     struct song *new_song = make_song(name, artist);
     new_song->next = head;
     return new_song;
@@ -40,8 +40,9 @@ int songcmp(struct song *a, struct song *b) {
     return t1;
 }
 
-struct song *insert_order(struct song *head, struct song *new_song) {
+struct song *insert_order(struct song *head, char *artist, char *name) {
     //case is first node
+    struct song *new_song = make_song(artist, name);
     if(songcmp(head,new_song)>0) {
         new_song->next = head;
 
