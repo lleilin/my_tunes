@@ -98,7 +98,7 @@ struct song *random_song(struct song *head) {
 }
 
 void free_song(struct song *old_song) {
-  free(old_song);
+    free(old_song);
 }
 
 struct song *remove_song(struct song *head, struct song *old_song) {
@@ -127,7 +127,7 @@ int list_length(struct song *head) {
     return count;
 }
 
-struct song *free_songs(struct song *head) {
+struct song *free_all(struct song *head) {
     while (head) {
       struct song *nextsong = head->next;
       free_song(head);

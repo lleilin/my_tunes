@@ -13,5 +13,6 @@ int main() {
 	songs = insert_front(songs, "Song 6", "Yulin");
 	print_all(songs);
 
+    free_all(songs);
 	return 0;
 }
