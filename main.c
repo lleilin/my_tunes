@@ -6,6 +6,32 @@
 #include "library.h"
 
 int main() {
+	struct library *lib = make_library();
+	struct song *A_Songs = NULL;
+	A_Songs = insert_order(A_Songs, "Alfred", "Banana");
+	A_Songs = insert_order(A_Songs, "Adam", "Cherry");
+	A_Songs = insert_order(A_Songs, "Alfred", "Watermelon");
+	A_Songs = insert_order(A_Songs, "Adam", "Apple");
+	struct song *L_Songs = NULL;
+	L_Songs = insert_order(L_Songs, "Lei", "Pencil");
+	L_Songs = insert_order(L_Songs, "Larry", "Eraser");
+	L_Songs = insert_order(L_Songs, "Larry", "Quill");
+	L_Songs = insert_order(L_Songs, "Lei", "Marker");
+	struct song *J_Songs = NULL;
+	J_Songs = insert_order(J_Songs, "Jeremy", "Eyes");
+	J_Songs = insert_order(J_Songs, "Jeremy", "Mouth");
+	J_Songs = insert_order(J_Songs, "Johnson", "Neck");
+	J_Songs = insert_order(J_Songs, "Johnson", "Ear");
+	struct song *Y_Songs = NULL;
+	Y_Songs = insert_order(Y_Songs, "Yulin", "Monitor");
+	Y_Songs = insert_order(Y_Songs, "Yukon", "Headset");
+	Y_Songs = insert_order(Y_Songs, "Yulin", "Keyboard");
+	Y_Songs = insert_order(Y_Songs, "Yukon", "Mouse");
+	struct song *Z_Songs = NULL;
+	Z_Songs = insert_order(Z_Songs, "Zed", "Sweater");
+	Z_Songs = insert_order(Z_Songs, "Zed", "T-Shirt");
+	Z_Songs = insert_order(Z_Songs, "Zack", "Jacket");
+	Z_Songs = insert_order(Z_Songs, "Zack", "Suit");
     /*
 	struct song *songs = NULL;
 	struct song *song1 = make_song("Lei", "Banana");
@@ -36,7 +62,5 @@ int main() {
 
     songs = free_all(songs);
     */
-
-    struct library *lib = make_library();
 	return 0;
 }
