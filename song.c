@@ -158,10 +158,8 @@ void print_song(struct song *current) {
 }
 
 void print_all(struct song *head) {
-  printf("%s\t\t%s\n\n", "Artists", "Songs");
     while(head) {
       print_song(head);
       head = head->next;
     }
-    printf("\n");
 }

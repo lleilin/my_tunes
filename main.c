@@ -11,15 +11,15 @@ int main() {
 	lib = add_lib_song(lib, "Adam", "Cherry");
 	lib = add_lib_song(lib, "Alfred", "Watermelon");
 	lib = add_lib_song(lib, "Adam", "Apple");
-	lib = add_lib_song(lib, "Lei", "Pencil");
+	lib = add_lib_song(lib, "Lei", "Marker");
 	lib = add_lib_song(lib, "Larry", "Eraser");
 	lib = add_lib_song(lib, "Larry", "Quill");
-	lib = add_lib_song(lib, "Lei", "Marker");
 	lib = add_lib_song(lib, "Jeremy", "Eyes");
-	lib = add_lib_song(lib, "Jeremy", "Mouth");
-	lib = add_lib_song(lib, "Johnson", "Neck");
 	lib = add_lib_song(lib, "Johnson", "Ear");
 	lib = add_lib_song(lib, "Yulin", "Monitor");
+	lib = add_lib_song(lib, "Jeremy", "Mouth");
+	lib = add_lib_song(lib, "Lei", "Pencil");
+	lib = add_lib_song(lib, "Johnson", "Neck");
 	lib = add_lib_song(lib, "Yukon", "Headset");
 	lib = add_lib_song(lib, "Yulin", "Keyboard");
 	lib = add_lib_song(lib, "Yukon", "Mouse");
@@ -27,6 +27,8 @@ int main() {
 	lib = add_lib_song(lib, "Zed", "T-Shirt");
 	lib = add_lib_song(lib, "Zack", "Jacket");
 	lib = add_lib_song(lib, "Zack", "Suit");
+
+	print_library(lib);
 
     /*
 	struct song *songs = NULL;

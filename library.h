@@ -8,8 +8,8 @@ struct library {
 };
 
 struct library *make_library();
-struct library *add_lib_song(struct library *playlist, struct song *new_song);
-struct song *find_lib_song(struct library *playlist, char *artist, char *song);
+struct library *add_lib_song(struct library *playlist, char *artist, char *name);
+struct song *find_lib_song(struct library *playlist, char *artist, char *name);
 struct song *find_artist(struct library *playlist, char *artist);
 void print_alpha(struct library *playlist, char letter);
 void print_artist(struct library *playlist, char *artist);
