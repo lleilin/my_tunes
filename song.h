@@ -14,7 +14,7 @@ void print_list(struct song *head);
 struct song *find_song(struct song *head, char *artist, char *song);
 struct song *first_song(struct song *head, char *artist);
 struct song *random_song(struct song *head);
-struct song *remove_song(struct song *head, struct song *song);
+struct song *remove_song(struct song *head, struct song *old_song);
 struct song *free_songs(struct song *head);
 
 int list_length(struct song *head);
