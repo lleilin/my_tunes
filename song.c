@@ -101,8 +101,8 @@ struct song *random_song(struct song *head) {
 }
 
 struct song *remove_song(struct song *head, struct song *old_song) {
-    struct song* temp = front;
-    struct song* last = front;
+    struct song *temp = front;
+    struct song *last = front;
     while (front) {
       if (!strcmp(artist,cur->artist) && !strcmp(song,cur->name)) {
         last->next = front->next;
@@ -124,4 +124,12 @@ int list_length(struct song *head) {
         current = current->next;
     }
     return count;
+}
+
+struct song *free_songs(struct song *head) {
+    while (head) {
+      struct song *nextsong = head->next;
+      free_song(head)
+      head = nextsong;
+    }
 }
