@@ -17,18 +17,21 @@ int main() {
 	songs = insert_order(songs, "Yulin", "Bond");
 
 	print_all(songs);
-	remove_song(songs, "Jeremy", "Cherry");
+	songs = remove_song(songs, "Yulin", "James");
+	songs = remove_song(songs, "Jeremy", "Cherry");
 	print_all(songs);
-	remove_song(songs, "Yulin", "Bond");
+	songs = remove_song(songs, "Yulin", "Bond");
 	print_all(songs);
 
-	// printf("Finding Song & Artist (Lei, Song 1): \n");
-	// print_song(find_song(songs, "Yulin", "1"));
+	printf("Finding Song & Artist (Lei, Song 1): \n");
+	print_song(find_song(songs, "Yulin", "1"));
 
-	// printf("Finding Artist (Jeremy): \n");
-	// print_song(first_song(songs, "1"));
+	printf("Finding Artist (Jeremy): \n");
+	print_song(first_song(songs, "1"));
 
+    song1 = free_all(song1);
+    song2 = free_all(song2);
 
-  free_all(songs);
+    songs = free_all(songs);
 	return 0;
 }

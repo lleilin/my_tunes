@@ -1,10 +1,11 @@
 CC=gcc
 OBJECTS=song.o library.o main.o
+FLAGS=
 
 all:main
 
 main: $(OBJECTS)
-	$(CC) -o main $(OBJECTS)
+	$(CC) $(FLAGS) -o main $(OBJECTS)
 
 $(OBJECTS): song.h
 

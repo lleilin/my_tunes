@@ -106,6 +106,14 @@ struct song *free_song(struct song *old_song) {
 
 struct song *remove_song(struct song *head, char *artist, char *name) {
     struct song *old_song = find_song(head, artist, name);
+
+    if(!songcmp(old_song,head)) {
+        struct song *out = head->next;
+        head = free_song(head);
+
+        return out;
+    }
+
     struct song *temp = head;
     struct song *last = head;
 
