@@ -13,8 +13,8 @@ struct song *make_song(char *new_name, char *new_artist) {
 }
 
 struct song *insert_front(struct song *head, struct song *new_song) {
-    new_song->new_song = head;
-
+    struct song *new_song = make_song(name, artist);
+    new_song->next = head;
     return new_song;
 }
 
