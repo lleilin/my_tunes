@@ -91,9 +91,9 @@ struct song *first_song(struct song *head, char *artist) {
 struct song *random_song(struct song *head) {
     struct song *current = head;
     srand(time(NULL));
-    int rand = rand(list_length(head));
+    int num = rand() % list_length(head);
     int count = 0;
-    while(count < rand) {
+    while(count < num) {
       count++;
       current = current->next;
     }
