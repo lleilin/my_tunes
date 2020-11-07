@@ -3,8 +3,10 @@
 #include <string.h>
 #include <time.h>
 #include "song.h"
+#include "library.h"
 
 int main() {
+    /*
 	struct song *songs = NULL;
 	struct song *song1 = make_song("Lei", "Banana");
 	struct song *song2 = make_song("Jeremy", "Pie");
@@ -33,5 +35,8 @@ int main() {
     song2 = free_all(song2);
 
     songs = free_all(songs);
+    */
+
+    struct library *lib = make_library();
 	return 0;
 }
