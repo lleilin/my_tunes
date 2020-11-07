@@ -14,7 +14,7 @@ struct song *make_song(char *new_artist, char *new_name) {
 }
 
 struct song *insert_front(struct song *head, char *artist, char *name) {
-    struct song *new_song = make_song(name, artist);
+    struct song *new_song = make_song(artist, name);
     new_song->next = head;
     return new_song;
 }
@@ -32,8 +32,10 @@ int songcmp(struct song *a, struct song *b) {
     if(b == NULL) {
         return -1;
     }
+
     int t1 = strcmp(a->artist,b->artist);
-    if(!t1) {
+
+    if(t1 == 0) {
         return strcmp(a->name,b->name);
     }
 
@@ -43,46 +45,45 @@ int songcmp(struct song *a, struct song *b) {
 struct song *insert_order(struct song *head, char *artist, char *name) {
     //case is first node
     struct song *new_song = make_song(artist, name);
-    if(songcmp(head,new_song)>0) {
+    if(songcmp(head,new_song) > 0) {
         new_song->next = head;
-
         return new_song;
     }
+
     //other case
-    struct song *cur = head->next;
+    struct song *cur = head;
     while(cur) {
         if(songcmp(cur->next,new_song) > 0) {
             new_song->next = cur->next;
             cur->next = new_song;
-
             return head;
         }
+        cur = cur->next;
     }
     //should never get here
+    printf("RETURN NULL");
     return NULL;
 }
 
 struct song *find_song(struct song *head, char *artist, char *song) {
     struct song *cur = head;
-    while(head) {
+    while(cur) {
         if(!strcmp(artist,cur->artist) && !strcmp(song,cur->name)) {
             return cur;
         }
         cur = cur->next;
     }
-
     return NULL;
 }
 
 struct song *first_song(struct song *head, char *artist) {
     struct song *cur = head;
-    while(head) {
+    while(cur) {
         if(!strcmp(artist,cur->artist)) {
             return cur;
         }
         cur = cur->next;
     }
-
     return NULL;
 }
 
@@ -98,17 +99,20 @@ struct song *random_song(struct song *head) {
     return current;
 }
 
-void free_song(struct song *old_song) {
+struct song *free_song(struct song *old_song) {
     free(old_song);
+    return NULL;
 }
 
-struct song *remove_song(struct song *head, struct song *old_song) {
+struct song *remove_song(struct song *head, char *artist, char *name) {
+    struct song *old_song = find_song(head, artist, name);
     struct song *temp = head;
     struct song *last = head;
+
     while (head) {
       if (!songcmp(head, old_song)) {
         last->next = head->next;
-        free_song(head);
+        head = free_song(head);
       } else {
         last = head;
         head = head->next;
@@ -131,17 +135,22 @@ int list_length(struct song *head) {
 struct song *free_all(struct song *head) {
     while (head) {
       struct song *nextsong = head->next;
-      free_song(head);
+      head = free_song(head);
       head = nextsong;
     }
+    return NULL;
 }
 
 void print_song(struct song *current) {
-  printf("%s\t\t%s\n", current->artist, current-> name);
+  if (current) {
+    printf("%s\t\t%s\n", current->artist, current-> name);
+  } else {
+    printf("DOES NOT EXIST\n");
+  }
 }
 
 void print_all(struct song *head) {
-  printf("%s\t\t%s\n", "Artists", "Songs");
+  printf("%s\t\t%s\n\n", "Artists", "Songs");
     while(head) {
       print_song(head);
       head = head->next;
