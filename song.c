@@ -12,10 +12,6 @@ struct song *make_song(char *new_name, char *new_artist) {
     return new_song;
 }
 
-void free_song(struct song *old_song) {
-  free(old_song);
-}
-
 struct song *insert_front(struct song *head, struct song *new_song) {
     new_song->new_song = head;
 
@@ -104,7 +100,7 @@ struct song *remove_song(struct song *head, struct song *old_song) {
     struct song *temp = front;
     struct song *last = front;
     while (front) {
-      if (!strcmp(artist,cur->artist) && !strcmp(song,cur->name)) {
+      if (!songcmp(front, old_song)) {
         last->next = front->next;
         free_song(front);
       } else {
@@ -124,6 +120,10 @@ int list_length(struct song *head) {
         current = current->next;
     }
     return count;
+}
+
+void free_song(struct song *old_song) {
+  free(old_song);
 }
 
 struct song *free_songs(struct song *head) {
