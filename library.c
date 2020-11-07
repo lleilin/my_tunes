@@ -2,4 +2,4 @@
 #include <stdlib.h>
 #include <time.h>
 #include "library.h"
-#include "song.c"
+#include "song.h"

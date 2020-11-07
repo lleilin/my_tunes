@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "song.h"
 
 struct song *make_song(char *new_name, char *new_artist) {
-    struct song *ns = malloc(sizeof(struct song));
-    strncpy(ns->name,nn,sizeof(ns->name)-1);
+    struct song *new_song = malloc(sizeof(struct song));
+    strncpy(new_song->name,new_name,sizeof(new_song->name)-1);
     strncpy(new_song->artist,new_artist,sizeof(new_song->artist)-1);
     new_song->next = NULL;
 
@@ -21,7 +22,7 @@ struct song *insert_front(struct song *head, char *name, char *artist) {
 //compares node alphabetically
 //as we assume no two nodes are the same so we an assert songcmp != 0 unless passed two NULLs
 //NULL is considered to be the largest thing
-struct song *songcmp(struct song *a, struct song *b) {
+int songcmp(struct song *a, struct song *b) {
     if(a == NULL && b == NULL) {
         return 0;
     }
@@ -42,7 +43,7 @@ struct song *songcmp(struct song *a, struct song *b) {
 struct song *insert_order(struct song *head, struct song *new_song) {
     //case is first node
     if(songcmp(head,new_song)>0) {
-        new_song->new_song = head;
+        new_song->next = head;
 
         return new_song;
     }
@@ -96,16 +97,20 @@ struct song *random_song(struct song *head) {
     return current;
 }
 
+void free_song(struct song *old_song) {
+  free(old_song);
+}
+
 struct song *remove_song(struct song *head, struct song *old_song) {
-    struct song *temp = front;
-    struct song *last = front;
-    while (front) {
-      if (!songcmp(front, old_song)) {
-        last->next = front->next;
-        free_song(front);
+    struct song *temp = head;
+    struct song *last = head;
+    while (head) {
+      if (!songcmp(head, old_song)) {
+        last->next = head->next;
+        free_song(head);
       } else {
-        last = front;
-        front = front->next;
+        last = head;
+        head = head->next;
       }
     }
     return temp;
@@ -122,14 +127,10 @@ int list_length(struct song *head) {
     return count;
 }
 
-void free_song(struct song *old_song) {
-  free(old_song);
-}
-
 struct song *free_songs(struct song *head) {
     while (head) {
       struct song *nextsong = head->next;
-      free_song(head)
+      free_song(head);
       head = nextsong;
     }
 }
