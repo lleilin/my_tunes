@@ -133,3 +133,16 @@ struct song *free_songs(struct song *head) {
       head = nextsong;
     }
 }
+
+void print_song(struct song *current) {
+  printf("%s\t\t%s\n", current->artist, current-> name);
+}
+
+void print_all(struct song *head) {
+  printf("%s\t\t%s\n", "Songs", "Artists");
+    while(head) {
+      print_song(head);
+      head = head->next;
+    }
+    printf("\n");
+}
