@@ -9,12 +9,14 @@ struct song{
 
 struct song *make_song(char *new_name, char *new_artist);
 struct song *insert_front(struct song *head, struct song *new_song);
-struct song *insert_order(struct song *head, struct song *new_song); 
+struct song *insert_order(struct song *head, struct song *new_song);
 void print_list(struct song *head);
 struct song *find_song(struct song *head, char *artist, char *song);
 struct song *first_song(struct song *head, char *artist);
 struct song *random_song(struct song *head);
 struct song *remove_song(struct song *head, struct song *song);
 struct song *free_songs(struct song *head);
+
+int list_length(struct song *head);
 
 #endif

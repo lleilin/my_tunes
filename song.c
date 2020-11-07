@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "song.h"
 
 struct song *make_song(char *new_name, char *new_artist) {
@@ -18,7 +20,7 @@ struct song *insert_front(struct song *head, struct song *new_song) {
 
 //compares node alphabetically
 //as we assume no two nodes are the same so we an assert songcmp != 0 unless passed two NULLs
-//NULL is considered to be the largest thing 
+//NULL is considered to be the largest thing
 struct song *songcmp(struct song *a, struct song *b) {
     if(a == NULL && b == NULL) {
         return 0;
@@ -80,4 +82,27 @@ struct song *first_song(struct song *head, char *artist) {
     }
 
     return NULL;
+}
+
+struct song *random_song(struct song *head) {
+    struct song *current = head;
+    srand(time(NULL));
+    int rand = rand(list_length(head));
+    int count = 0;
+    while(count < rand) {
+      count++;
+      current = current->next;
+    }
+    return current;
+}
+
+int list_length(struct song *head) {
+  int count = 0;
+    struct song *current = head;
+    while (current != NULL)
+    {
+        count++;
+        current = current->next;
+    }
+    return count;
 }
