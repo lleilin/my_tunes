@@ -16,6 +16,7 @@ void print_artist(struct library *playlist, char *artist);
 void print_library(struct library *playlist);
 void print_random(struct library *playlist);
 void print_shuffle(struct library *playlist, int n);
+int lib_length(struct library *playlist);
 struct library *remove_lib_song(struct library *playlist, char *artist, char *name);
 struct library *free_library(struct library *playlist);
 

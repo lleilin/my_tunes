@@ -6,29 +6,29 @@
 #include "library.h"
 
 int main() {
-	struct library *lib = make_library();
-	lib = add_lib_song(lib, "Alfred", "Banana");
-	lib = add_lib_song(lib, "Adam", "Cherry");
-	lib = add_lib_song(lib, "Alfred", "Watermelon");
-	lib = add_lib_song(lib, "Adam", "Apple");
-	lib = add_lib_song(lib, "Lei", "Marker");
-	lib = add_lib_song(lib, "Larry", "Eraser");
-	lib = add_lib_song(lib, "Larry", "Quill");
-	lib = add_lib_song(lib, "Jeremy", "Eyes");
-	lib = add_lib_song(lib, "Johnson", "Ear");
-	lib = add_lib_song(lib, "Yulin", "Monitor");
-	lib = add_lib_song(lib, "Jeremy", "Mouth");
-	lib = add_lib_song(lib, "Lei", "Pencil");
-	lib = add_lib_song(lib, "Johnson", "Neck");
-	lib = add_lib_song(lib, "Yukon", "Headset");
-	lib = add_lib_song(lib, "Yulin", "Keyboard");
-	lib = add_lib_song(lib, "Yukon", "Mouse");
-	lib = add_lib_song(lib, "Zed", "Sweater");
-	lib = add_lib_song(lib, "Zed", "T-Shirt");
-	lib = add_lib_song(lib, "Zack", "Jacket");
-	lib = add_lib_song(lib, "Zack", "Suit");
+	struct library *playlist = make_library();
+	playlist = add_lib_song(playlist, "Alfred", "Banana");
+	playlist = add_lib_song(playlist, "Adam", "Cherry");
+	playlist = add_lib_song(playlist, "Alfred", "Watermelon");
+	playlist = add_lib_song(playlist, "Adam", "Apple");
+	playlist = add_lib_song(playlist, "Lei", "Marker");
+	playlist = add_lib_song(playlist, "Larry", "Eraser");
+	playlist = add_lib_song(playlist, "Larry", "Quill");
+	playlist = add_lib_song(playlist, "Jeremy", "Eyes");
+	playlist = add_lib_song(playlist, "Johnson", "Ear");
+	playlist = add_lib_song(playlist, "Yulin", "Monitor");
+	playlist = add_lib_song(playlist, "Jeremy", "Mouth");
+	playlist = add_lib_song(playlist, "Lei", "Pencil");
+	playlist = add_lib_song(playlist, "Johnson", "Neck");
+	playlist = add_lib_song(playlist, "Yukon", "Headset");
+	playlist = add_lib_song(playlist, "Yulin", "Keyboard");
+	playlist = add_lib_song(playlist, "Yukon", "Mouse");
+	playlist = add_lib_song(playlist, "Zed", "Sweater");
+	playlist = add_lib_song(playlist, "Zed", "T-Shirt");
+	playlist = add_lib_song(playlist, "Zack", "Jacket");
+	playlist = add_lib_song(playlist, "Zack", "Suit");
 
-	print_library(lib);
+	print_library(playlist);
 
     /*
 	struct song *songs = NULL;
