@@ -36,15 +36,15 @@ struct song *find_lib_song(struct library *playlist, char *artist, char *name) {
 }
 
 struct song *find_artist(struct library *playlist, char *artist) {
-    struct song *to_find = make_song(artist,song);
+    struct song *to_find = make_song(artist,"dummy");
     struct song *tmp = find_alpha(playlist,to_find);
-    struct song *out = find_artist(tmp,artist);
+    struct song *out = first_song(tmp,artist);
     free_all(to_find);
     return out;
 }
 
 void print_alpha(struct library *playlist, char letter) {
-    print_all(playlist->lib[toupper(i)-'A']);
+    print_all(playlist->lib+toupper(letter)-'A');
 }
 
 void print_artist(struct library *playlist, char *artist);
