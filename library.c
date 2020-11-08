@@ -66,7 +66,7 @@ void print_artist(struct library *playlist, char *artist) {
 }
 
 void print_library(struct library *playlist) {
-  printf("Song:\t\tArtist:\n");
+  printf("%-24s%-24s\n", "Arist", "Song");
   int i;
   for (i = 0; i < 27; i++) {
       print_all((playlist->lib)[i]);
