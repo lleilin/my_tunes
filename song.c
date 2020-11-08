@@ -61,7 +61,6 @@ struct song *insert_order(struct song *head, char *artist, char *name) {
         cur = cur->next;
     }
     //should never get here
-    printf("RETURN NULL");
     return NULL;
 }
 
@@ -151,15 +150,15 @@ struct song *free_all(struct song *head) {
 
 void print_song(struct song *current) {
   if (current) {
-    printf("%s\t\t\t%s\n", current->artist, current-> name);
+    printf("%s\t\t%s\n", current->name, current->artist);
   } else {
     printf("DOES NOT EXIST\n");
   }
 }
 
 void print_all(struct song *head) {
-    while(head!=NULL) {
-      print_song(head);
-      head = head->next;
+    while(head) {
+        print_song(head);
+        head = head->next;
     }
 }

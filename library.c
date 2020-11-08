@@ -10,7 +10,7 @@ struct library *make_playlist() {
   struct library *new_playlist = malloc(sizeof(struct library));
   int i;
   for (i = 0; i < 27; i++) {
-    new_playlist->lib[i] = make_song("","");
+    new_playlist->lib[i] = NULL;
   }
 
   return new_playlist;
@@ -28,9 +28,14 @@ struct song *find_lib_alpha(struct library *playlist, char *artist) {
 
 struct library *add_lib_song(struct library *playlist, char *artist, char *name) {
     struct song *temp = find_lib_alpha(playlist,artist);
-    insert_order(temp,artist,name);
+    int tmp = artist[0]-'A';
+    if(tmp > 26 || tmp < 0) {
+        tmp = 26;
+    }
+    playlist->lib[tmp] = insert_order(playlist->lib[tmp],artist,name);
     return playlist;
 }
+
 struct song *find_lib_song(struct library *playlist, char *artist, char *name) {
     struct song *temp = find_lib_alpha(playlist, artist);
     find_song(temp, artist, name);
@@ -57,15 +62,12 @@ void print_artist(struct library *playlist, char *artist) {
 }
 
 void print_library(struct library *playlist) {
+  printf("Song:\t\tArtist:\n");
   int i;
-  printf("Artist:\t\t\tSong:\n");
   for (i = 0; i < 27; i++) {
-    if ((playlist->lib)[i]) {
-      printf("%c", i + 'A');
       print_all((playlist->lib)[i]);
-    }
   }
-};
+}
 
 void print_random(struct library *playlist);
 void print_shuffle(struct library *playlist, int n);
