@@ -5,6 +5,7 @@ struct song{
   char name[128];
   char artist[128];
   struct song *next;
+  int size;
 };
 
 struct song *make_song(char *new_artist, char *new_name);

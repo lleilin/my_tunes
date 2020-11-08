@@ -5,6 +5,7 @@
 
 struct library {
    struct song *lib[27];
+   int size;
 };
 
 struct library *make_playlist();

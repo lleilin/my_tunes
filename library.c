@@ -8,6 +8,9 @@
 
 struct library *make_playlist() {
   struct library *new_playlist = malloc(sizeof(struct library));
+
+  new_playlist->size = 0;
+
   int i;
   for (i = 0; i < 27; i++) {
     new_playlist->lib[i] = NULL;
@@ -27,11 +30,14 @@ struct song *find_lib_alpha(struct library *playlist, char *artist) {
 }
 
 struct library *add_lib_song(struct library *playlist, char *artist, char *name) {
+    playlist->size++;
+
     struct song *temp = find_lib_alpha(playlist,artist);
     int tmp = artist[0]-'A';
     if(tmp > 26 || tmp < 0) {
         tmp = 26;
     }
+
     playlist->lib[tmp] = insert_order(playlist->lib[tmp],artist,name);
     return playlist;
 }
@@ -39,12 +45,10 @@ struct library *add_lib_song(struct library *playlist, char *artist, char *name)
 struct song *find_lib_song(struct library *playlist, char *artist, char *name) {
     struct song *temp = find_lib_alpha(playlist, artist);
     find_song(temp, artist, name);
-    free_all(temp);
 }
 struct song *find_artist(struct library *playlist, char *artist) {
     struct song *temp = find_lib_alpha(playlist, artist);
     first_song(temp, artist);
-    free_all;
 }
 
 void print_alpha(struct library *playlist, char letter) {
@@ -69,10 +73,45 @@ void print_library(struct library *playlist) {
   }
 }
 
-void print_random(struct library *playlist);
-void print_shuffle(struct library *playlist, int n);
-int lib_length(struct library *playlist);
-struct library *remove_lib_song(struct library *playlist, char *artist, char *name);
+//helper
+struct song *find_song_ind(struct library *playlist,int to_get){
+    int i;
+    int c = 0;
+    struct song *cur;
+    for(i = 0; i < 27; i++) {
+        cur = playlist->lib[i];
+        while(cur) {
+            if(c == to_get) {
+                return cur;
+            }
+            c++;
+            cur = cur->next;
+        }
+    }
+    //should never get here
+    return NULL;
+}
+
+void print_random(struct library *playlist) {
+    srand(time(NULL));
+    print_song(find_song_ind(playlist,rand()%playlist->size));
+}
+
+void print_shuffle(struct library *playlist, int n) {
+    srand(time(NULL));
+    int i;
+    for(i = 0; i < n; i++) {
+        print_song(find_song_ind(playlist,rand()%playlist->size));
+    }
+}
+
+struct library *remove_lib_song(struct library *playlist, char *artist, char *name) {
+    struct song *cur = playlist->lib[artist[0]-'A'];
+
+    remove_song(cur,artist,name);
+
+    return playlist;
+}
 
 struct library *free_library(struct library *playlist) {
   int i;
