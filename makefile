@@ -1,6 +1,6 @@
 CC=gcc
 OBJECTS=song.o library.o main.o
-FLAGS=
+FLAGS=-g
 
 all:main
 
@@ -9,7 +9,7 @@ main: $(OBJECTS)
 
 $(OBJECTS): song.h
 
-library.o: library.c library.h 
+library.o: library.c library.h
 main.o: main.c library.h
 song.o: song.c song.h
 

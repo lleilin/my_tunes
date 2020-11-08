@@ -4,10 +4,11 @@
 #include "song.h"
 
 struct library {
-   struct song lib[27];
+   struct song *lib[27];
 };
 
-struct library *make_library();
+struct library *make_playlist();
+struct song *find_lib_alpha(struct library *playlist, char *artist);
 struct library *add_lib_song(struct library *playlist, char *artist, char *name);
 struct song *find_lib_song(struct library *playlist, char *artist, char *name);
 struct song *find_artist(struct library *playlist, char *artist);

@@ -151,14 +151,14 @@ struct song *free_all(struct song *head) {
 
 void print_song(struct song *current) {
   if (current) {
-    printf("%s\t\t%s\n", current->artist, current-> name);
+    printf("%s\t\t\t%s\n", current->artist, current-> name);
   } else {
     printf("DOES NOT EXIST\n");
   }
 }
 
 void print_all(struct song *head) {
-    while(head) {
+    while(head!=NULL) {
       print_song(head);
       head = head->next;
     }

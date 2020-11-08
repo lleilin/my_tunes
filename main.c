@@ -6,29 +6,40 @@
 #include "library.h"
 
 int main() {
-	struct library *playlist = make_library();
-	playlist = add_lib_song(playlist, "Alfred", "Banana");
-	playlist = add_lib_song(playlist, "Adam", "Cherry");
-	playlist = add_lib_song(playlist, "Alfred", "Watermelon");
-	playlist = add_lib_song(playlist, "Adam", "Apple");
-	playlist = add_lib_song(playlist, "Lei", "Marker");
-	playlist = add_lib_song(playlist, "Larry", "Eraser");
-	playlist = add_lib_song(playlist, "Larry", "Quill");
-	playlist = add_lib_song(playlist, "Jeremy", "Eyes");
-	playlist = add_lib_song(playlist, "Johnson", "Ear");
-	playlist = add_lib_song(playlist, "Yulin", "Monitor");
-	playlist = add_lib_song(playlist, "Jeremy", "Mouth");
-	playlist = add_lib_song(playlist, "Lei", "Pencil");
-	playlist = add_lib_song(playlist, "Johnson", "Neck");
-	playlist = add_lib_song(playlist, "Yukon", "Headset");
-	playlist = add_lib_song(playlist, "Yulin", "Keyboard");
-	playlist = add_lib_song(playlist, "Yukon", "Mouse");
-	playlist = add_lib_song(playlist, "Zed", "Sweater");
-	playlist = add_lib_song(playlist, "Zed", "T-Shirt");
-	playlist = add_lib_song(playlist, "Zack", "Jacket");
-	playlist = add_lib_song(playlist, "Zack", "Suit");
+	struct library *playlist = make_playlist();
+
+	playlist = add_lib_song(playlist, "AArtist", "BSong");
+	playlist = add_lib_song(playlist, "BArtist", "BSong");
+	playlist = add_lib_song(playlist, "BArtist", "CCSong");
+	playlist = add_lib_song(playlist, "BBArtist", "ASong");
 
 	print_library(playlist);
+	free_library(playlist);
+
+
+	// playlist = free_library(playlist);
+	// playlist = add_lib_song(playlist, "Alfred", "Banana");
+	// playlist = add_lib_song(playlist, "Adam", "Cherry");
+	// playlist = add_lib_song(playlist, "Alfred", "Watermelon");
+	// playlist = add_lib_song(playlist, "Adam", "Apple");
+	// playlist = add_lib_song(playlist, "Lei", "Marker");
+	// playlist = add_lib_song(playlist, "Larry", "Eraser");
+	// playlist = add_lib_song(playlist, "Larry", "Quill");
+	// playlist = add_lib_song(playlist, "Jeremy", "Eyes");
+	// playlist = add_lib_song(playlist, "Johnson", "Ear");
+	// playlist = add_lib_song(playlist, "Yulin", "Monitor");
+	// playlist = add_lib_song(playlist, "Jeremy", "Mouth");
+	// playlist = add_lib_song(playlist, "Lei", "Pencil");
+	// playlist = add_lib_song(playlist, "Johnson", "Neck");
+	// playlist = add_lib_song(playlist, "Yukon", "Headset");
+	// playlist = add_lib_song(playlist, "Yulin", "Keyboard");
+	// playlist = add_lib_song(playlist, "Yukon", "Mouse");
+	// playlist = add_lib_song(playlist, "Zed", "Sweater");
+	// playlist = add_lib_song(playlist, "Zed", "T-Shirt");
+	// playlist = add_lib_song(playlist, "Zack", "Jacket");
+	// playlist = add_lib_song(playlist, "Zack", "Suit");
+
+	// print_library(playlist);
 
     /*
 	struct song *songs = NULL;
