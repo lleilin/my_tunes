@@ -31,7 +31,7 @@ int main() {
 	print_song(find_song(songs, "Lei", "Banana"));
 
 	printf("Finding Artist (Jeremy): \n");
-	print_song(first_song(songs, "1"));
+	print_song(first_song(songs, "Jeremy"));
 
     printf("TESTING FREE ALL (you aren't supposed to see anything)\n");
     song1 = free_all(song1);
