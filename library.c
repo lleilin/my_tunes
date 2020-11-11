@@ -93,7 +93,7 @@ struct song *find_song_ind(struct library *playlist,int to_get){
 }
 
 void print_random(struct library *playlist) {
-    srand(time(NULL));
+    srand(time(NULL)-10);
     print_song(find_song_ind(playlist,rand()%playlist->size));
 }
 
