@@ -26,8 +26,7 @@ int main() {
 	songs = remove_song(songs, "Yulin", "Bond");
 	print_all(songs);
 
-    printf("\nTESTING find_song\n");
-    printf("\nTESTING print_song (aka printing the node)\n");
+    printf("\nTESTING find_song and print_song (aka printing the node) they go hand and hand\n");
 	printf("Finding Song & Artist (Yulin, Bond): \n");
 	print_song(find_song(songs, "Lei", "Banana"));
 	printf("Finding Song & Artist [A Song That Doesn't Exist]: \n");
@@ -43,7 +42,7 @@ int main() {
 	print_song(random_song(songs));
 
 	printf("\nTESTING insert_front\n");
-	songs = insert_front(songs, "Yulin", "Enter Sandman");
+	songs = insert_front(songs, "Metallica", "Enter Sandman");
 	print_all(songs);
 
 	printf("\nTESTING list_length\n");
@@ -73,10 +72,10 @@ int main() {
     printf("TESTING print_library\n");
 	struct library *playlist = make_playlist();
 
-	playlist = add_lib_song(playlist, "AArtist", "BSong");
-	playlist = add_lib_song(playlist, "BArtist", "BSong");
-	playlist = add_lib_song(playlist, "BArtist", "CCSong");
-	playlist = add_lib_song(playlist, "BBArtist", "ASong");
+	playlist = add_lib_song(playlist, "Camellia", "Ghost");
+	playlist = add_lib_song(playlist, "GYARI", "Scramble Full Panic Sessions");
+	playlist = add_lib_song(playlist, "Led Zeppelin", "That's the Way");
+	playlist = add_lib_song(playlist, "The Greatful Dead", "Truckin");
 	playlist = add_lib_song(playlist, "Alfred", "Banana");
 	playlist = add_lib_song(playlist, "Adam", "Cherry");
 	playlist = add_lib_song(playlist, "Alfred", "Watermelon");
@@ -89,12 +88,12 @@ int main() {
 	playlist = add_lib_song(playlist, "Yulin", "Monitor");
 	playlist = add_lib_song(playlist, "Jeremy", "Mouth");
 	playlist = add_lib_song(playlist, "Lei", "Pencil");
-	playlist = add_lib_song(playlist, "Johnson", "Neck");
+	playlist = add_lib_song(playlist, "Toby Fox", "It's Raining Somewhere Else");
 	playlist = add_lib_song(playlist, "Yukon", "Headset");
 	playlist = add_lib_song(playlist, "Yulin", "Keyboard");
 	playlist = add_lib_song(playlist, "Yukon", "Mouse");
-	playlist = add_lib_song(playlist, "Zed", "Sweater");
-	playlist = add_lib_song(playlist, "Zed", "T-Shirt");
+	playlist = add_lib_song(playlist, "Arlo Guthrie", "Alice's Resturant");
+	playlist = add_lib_song(playlist, "[Totally an artist]", "[totally a name]");
 	playlist = add_lib_song(playlist, "Zack", "Jacket");
     playlist = add_lib_song(playlist, "Zack", "Suit");
 
