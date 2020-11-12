@@ -6,8 +6,8 @@
 #include "library.h"
 
 int main() {
-    printf("TESTING SONG STRUCT:\n\n");
-    printf("TESTING INSERT SONG\n");
+    printf("TESTING SONG STRUCT (make_song):\n\n");
+    printf("TESTING insert_order\n");
 	struct song *songs = NULL;
 	struct song *song1 = make_song("Lei", "Banana");
 	struct song *song2 = make_song("Jeremy", "Pie");
@@ -18,27 +18,35 @@ int main() {
 	songs = insert_order(songs, "Lei", "Apple");
 	songs = insert_order(songs, "Jeremy", "Pie");
 	songs = insert_order(songs, "Yulin", "Bond");
-
+	printf("TESTING print_list\n\n");
 	print_all(songs);
-    printf("TESTING REMOVE SONG\n");
+    printf("\nTESTING remove_song\n\n");
 	songs = remove_song(songs, "Yulin", "James");
 	songs = remove_song(songs, "Jeremy", "Cherry");
 	songs = remove_song(songs, "Yulin", "Bond");
 	print_all(songs);
 
-    printf("TESTING FIND SONG\n");
+    printf("\nTESTING find_song\n");
 	printf("Finding Song & Artist (Yulin, Bond): \n");
 	print_song(find_song(songs, "Lei", "Banana"));
+	printf("Finding Song & Artist [A Song That Doesn't Exist]: \n");
+	print_song(find_song(songs, "An Artist That Doesn't Exist", "A Song That Doesn't Exist"));
 
-	printf("Finding Artist (Jeremy): \n");
+	printf("\nFinding First Song Of Artist (first_song): \n");
+	printf("Finding Artist Jeremy: \n");
 	print_song(first_song(songs, "Jeremy"));
+	printf("Finding Artist Nonexistent: \n");
+	print_song(first_song(songs, "Nonexistent"));
 
-    printf("TESTING FREE ALL (you aren't supposed to see anything)\n");
+	printf("\nTESTING random_song: \n");
+
+
+    printf("\nTESTING FREE ALL (you aren't supposed to see anything)\n");
     song1 = free_all(song1);
     song2 = free_all(song2);
 
     songs = free_all(songs);
-
+    /*
     printf("\nTESTING LIBRARY STRUCT:\n\n");
 
     printf("TESTING ADD LIB SONG\n");
@@ -71,6 +79,12 @@ int main() {
 
 	print_library(playlist);
 
+	printf("\nTESTING REMOVE LIB SONG\n");
+	playlist = remove_lib_song(playlist, "Yukon", "Headset");
+	playlist = remove_lib_song(playlist, "AArtist", "BSong");
+	playlist = remove_lib_song(playlist, "Zack", "Suit");
+	print_library(playlist);
+	/*
     printf("TESTING FIND LIB SONG\n");
     print_song(find_lib_song(playlist,"Johnson","Ear"));
 
@@ -82,7 +96,8 @@ int main() {
 
     printf("TESTING PRINT SHUFFLE\n");
     print_shuffle(playlist,5);
-
+	
 	free_library(playlist);
+	*/
 	return 0;
 }

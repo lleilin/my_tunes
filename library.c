@@ -66,7 +66,8 @@ void print_artist(struct library *playlist, char *artist) {
 }
 
 void print_library(struct library *playlist) {
-  printf("%-24s%-24s\n", "Arist", "Song");
+  printf("\n%-24s%-24s\n", "Artist", "Song");
+  printf("--------------------------------\n");
   int i;
   for (i = 0; i < 27; i++) {
       print_all((playlist->lib)[i]);
@@ -108,7 +109,7 @@ void print_shuffle(struct library *playlist, int n) {
 struct library *remove_lib_song(struct library *playlist, char *artist, char *name) {
     struct song *cur = playlist->lib[artist[0]-'A'];
 
-    remove_song(cur,artist,name);
+    playlist->lib[artist[0]-'A'] = remove_song(cur,artist,name);
 
     return playlist;
 }
