@@ -101,7 +101,7 @@ struct song *find_song_ind(struct library *playlist,int to_get){
 
 void print_random(struct library *playlist) {
     srand(time(NULL)-10);
-    print_song(find_song_ind(playlist,rand()%playlist->size));
+    print_song(find_song_ind(playlist,(rand())%playlist->size));
 }
 
 void print_shuffle(struct library *playlist, int n) {
@@ -120,6 +120,11 @@ struct library *remove_lib_song(struct library *playlist, char *artist, char *na
       (playlist->lib)[temp] = remove_song(cur,artist,name);
     } else {
       (playlist->lib)[26] = remove_song(cur,artist,name);
+    }
+    int i;
+    playlist->size = 0;
+    for (i = 0; i<27; i++) {
+      playlist->size += list_length(playlist->lib[i]);
     }
     return playlist;
 }

@@ -6,7 +6,7 @@
 #include "library.h"
 
 int main() {
-	printf("Testing the Song Linked List:\n");
+	printf("\nTesting the Song Linked List:\n");
 	printf("=====================================================\n\n");
     printf("TESTING SONG STRUCT (make_song):\n\n");
     printf("TESTING insert_order\n");
@@ -100,26 +100,34 @@ int main() {
 
 	print_library(playlist);
 
-	printf("TESTING Returning List Given Artist:\n");
-	
-	printf("\nTESTING REMOVE LIB SONG\n");
+	printf("\nTESTING Returning List Given Artist find_lib_alpha:\n");
+	print_all(find_lib_alpha(playlist, "Jeremy"));
+
+	printf("\nTESTING Printing List Given Letter (print_alpha):\n");
+	print_alpha(playlist, 'Z');
+
+	printf("\nTESTING REMOVING A SONG FROM LIBRARY remove_lib_song");
 	playlist = remove_lib_song(playlist, "Yukon", "Headset");
 	playlist = remove_lib_song(playlist, "AArtist", "BSong");
 	playlist = remove_lib_song(playlist, "Zack", "Suit");
 	print_library(playlist);
-	/*
-    printf("TESTING FIND LIB SONG\n");
+	
+    printf("\nTESTING FIND SONG Ear by Johnson (find_lib_song)\n");
     print_song(find_lib_song(playlist,"Johnson","Ear"));
-
-    printf("TESTING FIND ARTIST\n");
+    
+    printf("\nTESTING FINDING FIRST SONG BY ARTIST Larry (find_artist)\n");
     print_song(find_artist(playlist,"Larry"));
 
-    printf("TESTING PRINT RANDOM\n");
-    print_random(playlist);
+    printf("\nTESTING PRINTING SONGS BY ARTIST Alfred (print_artist)\n");
+    print_artist(playlist,"Alfred");
 
-    printf("TESTING PRINT SHUFFLE\n");
+    printf("\nTESTING PRINT RANDOM (print_random)\n");
+    print_random(playlist);
+    
+    printf("\nTESTING PRINTING FIVE SONGS SHUFFLED (print_shuffle)\n");
     print_shuffle(playlist,5);
-	*/
+	
+	printf("\nTESTING free_library (you aren't supposed to see anything)\n");
 	free_library(playlist);
 	
 	return 0;

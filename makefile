@@ -1,6 +1,6 @@
 CC=gcc
 OBJECTS=song.o library.o main.o
-FLAGS=-g
+FLAGS=
 
 all:main
 
