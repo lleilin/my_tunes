@@ -6,11 +6,11 @@
 #include "library.h"
 
 int main() {
+	printf("Testing the Song Linked List:\n");
+	printf("=====================================================\n\n");
     printf("TESTING SONG STRUCT (make_song):\n\n");
     printf("TESTING insert_order\n");
 	struct song *songs = NULL;
-	struct song *song1 = make_song("Lei", "Banana");
-	struct song *song2 = make_song("Jeremy", "Pie");
 
 	songs = insert_order(songs, "Lei", "Banana");
 	songs = insert_order(songs, "Jeremy", "Cherry");
@@ -27,6 +27,7 @@ int main() {
 	print_all(songs);
 
     printf("\nTESTING find_song\n");
+    printf("\nTESTING print_song (aka printing the node)\n");
 	printf("Finding Song & Artist (Yulin, Bond): \n");
 	print_song(find_song(songs, "Lei", "Banana"));
 	printf("Finding Song & Artist [A Song That Doesn't Exist]: \n");
@@ -39,17 +40,37 @@ int main() {
 	print_song(first_song(songs, "Nonexistent"));
 
 	printf("\nTESTING random_song: \n");
+	print_song(random_song(songs));
 
+	printf("\nTESTING insert_front\n");
+	songs = insert_front(songs, "Yulin", "Enter Sandman");
+	print_all(songs);
 
-    printf("\nTESTING FREE ALL (you aren't supposed to see anything)\n");
+	printf("\nTESTING list_length\n");
+	printf("Length of Song List: %d\n", list_length(songs));
+
+	struct song *song1 = make_song("Lei", "Banana");
+	struct song *song2 = make_song("Jeremy", "Pie");
+
+	printf("\nComparing Two Songs\n");
+	print_song(song1);
+	print_song(song2);
+	printf("Should be a positive number: %d\n", songcmp(song1, song2));
+
+    printf("\nTESTING free_all (you aren't supposed to see anything)\n\n\n");
     song1 = free_all(song1);
     song2 = free_all(song2);
 
     songs = free_all(songs);
-    /*
-    printf("\nTESTING LIBRARY STRUCT:\n\n");
 
-    printf("TESTING ADD LIB SONG\n");
+
+    printf("=====================================================\n");
+	printf("Testing the Playlist (Library Struct)\n");
+    printf("=====================================================\n");
+
+    printf("\nTESTING LIBRARY STRUCT and make_playlist:\n\n");
+    printf("TESTING add_lib_song\n");
+    printf("TESTING print_library\n");
 	struct library *playlist = make_playlist();
 
 	playlist = add_lib_song(playlist, "AArtist", "BSong");
@@ -79,6 +100,8 @@ int main() {
 
 	print_library(playlist);
 
+	printf("TESTING Returning List Given Artist:\n");
+	
 	printf("\nTESTING REMOVE LIB SONG\n");
 	playlist = remove_lib_song(playlist, "Yukon", "Headset");
 	playlist = remove_lib_song(playlist, "AArtist", "BSong");
@@ -96,8 +119,8 @@ int main() {
 
     printf("TESTING PRINT SHUFFLE\n");
     print_shuffle(playlist,5);
-	
-	free_library(playlist);
 	*/
+	free_library(playlist);
+	
 	return 0;
 }

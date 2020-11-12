@@ -52,7 +52,13 @@ struct song *find_artist(struct library *playlist, char *artist) {
 }
 
 void print_alpha(struct library *playlist, char letter) {
-  print_all((playlist->lib)[toupper(letter) - 'A']);
+  int first = toupper(letter);
+  int temp = first - 'A';
+  if (temp >= 0 && temp < 26) {
+    print_all((playlist->lib)[temp]);
+  } else {
+    print_all((playlist->lib)[26]);
+  }
 }
 
 void print_artist(struct library *playlist, char *artist) {
@@ -107,10 +113,14 @@ void print_shuffle(struct library *playlist, int n) {
 }
 
 struct library *remove_lib_song(struct library *playlist, char *artist, char *name) {
-    struct song *cur = playlist->lib[artist[0]-'A'];
-
-    playlist->lib[artist[0]-'A'] = remove_song(cur,artist,name);
-
+    struct song *cur = find_lib_alpha(playlist, artist);
+    int first = toupper(artist[0]);
+    int temp = first - 'A';
+    if (temp >= 0 && temp < 26) {
+      (playlist->lib)[temp] = remove_song(cur,artist,name);
+    } else {
+      (playlist->lib)[26] = remove_song(cur,artist,name);
+    }
     return playlist;
 }
 
